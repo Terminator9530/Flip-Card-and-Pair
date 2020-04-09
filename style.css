@@ -1,0 +1,116 @@
+body{
+  background: rgb(49, 47, 47);
+}
+
+.container{
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+h1{
+  color: white;
+  text-align: center;
+}
+
+.tiles{
+  list-style-type: none;
+  padding: 0;
+}
+
+.tiles li{
+  position: relative;
+  width: 25%;
+  height:300px;
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+  float: left;
+}
+
+.tiles li div{
+  width: 100%;
+  padding: 50% 0;
+  line-height: 0;
+  cursor: pointer;
+}
+img{
+  line-height: 0;
+}
+
+/*--------------------------------Animations------------------------------------*/
+
+.front{
+  position: absolute;
+}
+
+.flipfront{
+  animation: flip 0.1s linear forwards;
+}
+
+@keyframes flip{
+  0%{
+    transform: rotateY(0deg);
+  }
+  100%{
+    transform: rotateY(90deg);
+  }
+}
+
+
+/*----------------------------------------victory---------------------------------------------------*/
+
+h1{
+  font-size: 48px;
+  margin: 10px 0;
+}
+#pop-up{
+  position: relative;
+  width: 600px; 
+  margin: 0 auto; 
+  text-align: center;
+  top:-400px;
+}
+#pop-up .container{
+  background: #363636; 
+  padding: 40px; 
+  position: absolute; 
+  top: 50px; 
+  width: 100%; 
+  box-sizing: border-box;
+}
+.cross{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #555;
+  color: #ddd;
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cross:hover i{
+  color:red;
+}
+
+/*--------------------------------------------------------Animation----------------------------------------------------*/
+
+.animate{
+  animation:drop 0.5s ease forwards;
+}
+
+@keyframes drop{
+  0%{
+    opacity: 0;
+  }
+  70%{
+    transform: translateY(700px);
+  }
+  100%{
+    transform: translateY(500px);
+    opacity: 1;
+  }
+}
