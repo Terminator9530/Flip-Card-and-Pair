@@ -195,6 +195,7 @@ var prev = {
 
 function flip(index, val) {
     document.querySelectorAll(".front")[index].classList.add("flipfront");
+    document.querySelectorAll(".back")[index].classList.add("flipback");
     if (prev.val == "") {
         prev.val = val;
         prev.index = index;
@@ -233,6 +234,8 @@ function flip(index, val) {
             setTimeout(function () {
                 document.querySelectorAll(".front")[a].classList.remove("flipfront");
                 document.querySelectorAll(".front")[b].classList.remove("flipfront");
+                document.querySelectorAll(".back")[a].classList.remove("flipback");
+                document.querySelectorAll(".back")[b].classList.remove("flipback");
             }, 1000);
         }
     }

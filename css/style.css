@@ -41,6 +41,7 @@ h1 {
   margin-right: 10px;
   text-align: center;
   padding: 20px 0;
+  transform: rotateY(90deg);
 }
 
 img {
@@ -64,6 +65,10 @@ img {
 
 .flipfront {
   animation: flip 0.1s linear forwards;
+}
+
+.flipback {
+  animation: flip 0.1s 0.1s linear forwards reverse;
 }
 
 @keyframes flip {
