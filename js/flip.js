@@ -74,12 +74,13 @@ function shuffle(arra1) {
 
 function makePair(A){
     A=shuffle(A.concat(A));
+    console.log(A);
     return A;
 }
 
 function shuffleCards() {
     var tempCount = 0;
-    var tempArr = shuffle(arr).slice(0,4);
+    var tempArr = shuffle(arr).slice(0,10);
     var tempArr=makePair(tempArr);
     document.querySelectorAll("img").forEach(item => {
         console.log(item);
@@ -130,7 +131,7 @@ function flip(index, val) {
                 val: "",
                 index: ""
             };
-            if (count == 4) {
+            if (count == 10) {
                 document.getElementById("pop-up").classList.add("animate");
             }
         } else {
