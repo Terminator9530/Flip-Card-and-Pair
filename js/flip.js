@@ -174,7 +174,7 @@ function shuffleCards() {
         item.setAttribute("onclick", `flip(${tempCount},'${tempArr[tempCount++]}')`);
         item.setAttribute("style", `background:rgb(${randomColor()},${randomColor()},${randomColor()})`);
     });
-    document.getElementById("vic").src="./img/victory/"+victory[Math.floor(Math.random() * (victory.length - 0) + 0)]; 
+    document.getElementById("vic").src = "./img/victory/" + victory[Math.floor(Math.random() * (victory.length - 0) + 0)];
 }
 
 
