@@ -43,6 +43,7 @@ img{
   width:25%;
   height:300px;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(21, 42, 138, 0.452), 0 6px 20px 0 rgba(21, 42, 138, 0.452);
 }
 
 
