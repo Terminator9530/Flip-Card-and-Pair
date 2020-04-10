@@ -1,3 +1,6 @@
+
+/*---------------------------------------------------Flip Card-------------------------------------------------------------------*/
+
 body{
   background: rgb(49, 47, 47);
 }
@@ -6,6 +9,20 @@ body{
   width: 100%;
   max-width: 1200px;
   margin: 40px auto;
+  position: relative;
+}
+
+.flex-container1 {
+  display: flex;
+  position: relative;
+  z-index:2;
+}
+
+.flex-container2 {
+  display: flex;
+  position: absolute;
+  width:100%;
+  z-index:1;
 }
 
 h1{
@@ -13,36 +30,22 @@ h1{
   text-align: center;
 }
 
-.tiles{
-  list-style-type: none;
-  padding: 0;
-}
-
-.tiles li{
-  position: relative;
-  width: 25%;
-  height:300px;
-  margin: 0;
-  display: block;
-  box-sizing: border-box;
-  float: left;
-}
-
-.tiles li div{
-  width: 100%;
-  padding: 50% 0;
-  line-height: 0;
-  cursor: pointer;
-}
 img{
   line-height: 0;
+  width:25%;
 }
 
-/*--------------------------------Animations------------------------------------*/
 
 .front{
-  position: absolute;
+  background-color: #f1f1f1;
+  font-size: 30px;
+  width:25%;
+  height:300px;
+  cursor: pointer;
 }
+
+
+/*-------------------------------------------------------Animation for Flip Card------------------------------------------------*/
 
 .flipfront{
   animation: flip 0.1s linear forwards;
@@ -58,18 +61,19 @@ img{
 }
 
 
-/*----------------------------------------victory---------------------------------------------------*/
+/*-----------------------------------------------------------victory-------------------------------------------------------------*/
 
 h1{
   font-size: 48px;
   margin: 10px 0;
 }
 #pop-up{
-  position: relative;
+  position: absolute;
   width: 600px; 
-  margin: 0 auto; 
   text-align: center;
   top:-400px;
+  left:300px;
+  z-index: 3;
 }
 #pop-up .container{
   background: #363636; 
@@ -96,7 +100,7 @@ h1{
   color:red;
 }
 
-/*--------------------------------------------------------Animation----------------------------------------------------*/
+/*--------------------------------------------------------Animation for Victory----------------------------------------------------*/
 
 .animate{
   animation:drop 0.5s ease forwards;

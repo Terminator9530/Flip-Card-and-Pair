@@ -7,144 +7,139 @@
 </head>
 
 <body onload="shuffleCards()">
+  <h1>Click On The Cards To Make Pair</h1>
   <div class="container">
-    <h1>Click On The Cards To Make Pair</h1>
-    <ul class="tiles">
-      <li>
-        <div class="front" style="background: #267df4"></div>
-        <img src="img/apple.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #9126f4"></div>
-        <img src="img/cat.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #21bf3b"></div>
-        <img src="img/apple.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #c3333d"></div>
-        <img src="img/car.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #c3333d"></div>
-        <img src="img/car.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #21bf3b"></div>
-        <img src="img/cat.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #9126f4"></div>
-        <img src="img/soccer.png" width="300" height="300" class="back">
-      </li>
-      <li>
-        <div class="front" style="background: #267df4"></div>
-        <img src="img/soccer.png" width="300" height="300" class="back">
-      </li>
-    </ul>
-  </div>
-  <div id="pop-up">
-    <div class="container">
-      <h1>Victory</h1>
-      <div class="cross" onclick="hide()"><i class="fa fa-times"></i></div>
+    <div class="flex-container1">
+      <div class="front"></div>
+      <div class="front"></div>
+      <div class="front"></div>
+      <div class="front"></div>
     </div>
-  </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
+    <div class="flex-container2" style="top:0px;">
+      <img width="300" height="300">
+      <img width="300" height="300">
+      <img width="300" height="300">
+      <img width="300" height="300">
+    </div>
+    <div class="flex-container1">
+      <div class="front"></div>
+      <div class="front"></div>
+      <div class="front"></div>
+      <div class="front"></div>
+    </div>
+    <div class="flex-container2" style="top:300px;">
+      <img width="300" height="300">
+      <img width="300" height="300">
+      <img width="300" height="300">
+      <img width="300" height="300">
+    </div>
+    <div id="pop-up">
+      <div class="container">
+        <h1>Victory</h1>
+        <div class="cross" onclick="hide()"><i class="fa fa-times"></i></div>
+      </div>
+    </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
 
-    var arr=["apple","apple","cat","cat","car","car","soccer","soccer"];
-
-    function shuffle(arra1) {
-      var ctr = arra1.length,
-        temp, index;
-
-      // While there are elements in the array
-      while (ctr > 0) {
-        // Pick a random index
-        index = Math.floor(Math.random() * ctr);
-        // Decrease ctr by 1
-        ctr--;
-        // And swap the last element with it
-        temp = arra1[ctr];
-        arra1[ctr] = arra1[index];
-        arra1[index] = temp;
+      function randomColor(){
+        return Math.random() * (255 - 0) + 0;
       }
-      return arra1;
-    }
 
-    function shuffleCards(){
-      var tempCount=0;
-      var tempArr=shuffle(arr);
-      document.querySelectorAll("img").forEach(item=>{
-        console.log(item);
-        item.src=`img/${tempArr[tempCount++]}.png`;
-      });
-      tempCount=0;
-      document.querySelectorAll(".front").forEach(item=>{
-        console.log(item);
-        item.setAttribute("onclick", `flip(${tempCount},'${tempArr[tempCount++]}')`);
-      });
-    }
+      var arr = ["apple", "apple", "cat", "cat", "car", "car", "soccer", "soccer"];
+
+      function shuffle(arra1) {
+        var ctr = arra1.length,
+          temp, index;
+
+        // While there are elements in the array
+        while (ctr > 0) {
+          // Pick a random index
+          index = Math.floor(Math.random() * ctr);
+          // Decrease ctr by 1
+          ctr--;
+          // And swap the last element with it
+          temp = arra1[ctr];
+          arra1[ctr] = arra1[index];
+          arra1[index] = temp;
+        }
+        return arra1;
+      }
+
+      function shuffleCards() {
+        var tempCount = 0;
+        var tempArr = shuffle(arr);
+        document.querySelectorAll("img").forEach(item => {
+          console.log(item);
+          item.src = `img/${tempArr[tempCount++]}.png`;
+        });
+        tempCount = 0;
+        document.querySelectorAll(".front").forEach(item => {
+          console.log(item);
+          item.setAttribute("onclick", `flip(${tempCount},'${tempArr[tempCount++]}')`);
+          item.setAttribute("style", `background:rgb(${randomColor()},${randomColor()},${randomColor()})`);
+        });
+      }
 
 
-    function hide() {
-      document.getElementById("pop-up").classList.remove("animate");
-      window.location.reload(true);
-    }
-    var prev = {
-        val: "",
-        index: ""
-      },
-      curr = {
-        val: "",
-        index: ""
-      },
-      count = 0,
-      a, b;
+      function hide() {
+        document.getElementById("pop-up").classList.remove("animate");
+        window.location.reload(true);
+      }
+      var prev = {
+          val: "",
+          index: ""
+        },
+        curr = {
+          val: "",
+          index: ""
+        },
+        count = 0,
+        a, b;
 
-    function flip(index, val) {
-      document.querySelectorAll(".front")[index].classList.add("flipfront");
-      if (prev.val == "") {
-        prev.val = val;
-        prev.index = index;
-        console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
-      } else {
-        curr.val = val;
-        curr.index = index;
-        console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
-        if (prev.val == curr.val) {
-          console.log("correct");
-          count++;
-          prev = {
-            val: "",
-            index: ""
-          };
-          curr = {
-            val: "",
-            index: ""
-          };
-          if (count == 4) {
-            document.getElementById("pop-up").classList.add("animate");
-          }
+      function flip(index, val) {
+        document.querySelectorAll(".front")[index].classList.add("flipfront");
+        if (prev.val == "") {
+          prev.val = val;
+          prev.index = index;
+          console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
         } else {
-          console.log("Incorrect");
-          a = prev.index;
-          b = curr.index;
-          prev = {
-            val: "",
-            index: ""
-          };
-          curr = {
-            val: "",
-            index: ""
-          };
-          setTimeout(function () {
-            document.querySelectorAll(".front")[a].classList.remove("flipfront");
-            document.querySelectorAll(".front")[b].classList.remove("flipfront");
-          }, 1000);
+          curr.val = val;
+          curr.index = index;
+          console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
+          if (prev.val == curr.val) {
+            console.log("correct");
+            count++;
+            prev = {
+              val: "",
+              index: ""
+            };
+            curr = {
+              val: "",
+              index: ""
+            };
+            if (count == 4) {
+              document.getElementById("pop-up").classList.add("animate");
+            }
+          } else {
+            console.log("Incorrect");
+            a = prev.index;
+            b = curr.index;
+            prev = {
+              val: "",
+              index: ""
+            };
+            curr = {
+              val: "",
+              index: ""
+            };
+            setTimeout(function () {
+              document.querySelectorAll(".front")[a].classList.remove("flipfront");
+              document.querySelectorAll(".front")[b].classList.remove("flipfront");
+            }, 1000);
+          }
         }
       }
-    }
-  </script>
+    </script>
 </body>
