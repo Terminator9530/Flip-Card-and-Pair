@@ -117,7 +117,12 @@ h1{
 /*--------------------------------------------------------Animation for Victory----------------------------------------------------*/
 
 .animate{
-  animation:drop 0.5s ease forwards;
+  animation: drop 0.5s ease forwards;
+}
+
+.animateAvatar{
+  transform: translateX(170px);
+  animation: moveAvatar 2s 0.5s linear forwards infinite alternate;
 }
 
 @keyframes drop{
@@ -130,5 +135,19 @@ h1{
   100%{
     transform: translateY(500px);
     opacity: 1;
+  }
+}
+
+@keyframes moveAvatar{
+  0%{
+    opacity: 1;
+    transform: translateX(-200px);
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    transform: translateX(170px);
   }
 }
