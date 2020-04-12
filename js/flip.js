@@ -165,12 +165,12 @@ function shuffleCards() {
     var tempArr = shuffle(arr).slice(0, 10);
     var tempArr = makePair(tempArr);
     document.querySelectorAll("img").forEach(item => {
-        console.log(item);
+        //console.log(item);
         item.src = `img/${tempArr[tempCount++]}.png`;
     });
     tempCount = 0;
     document.querySelectorAll(".front").forEach(item => {
-        console.log(item);
+        //console.log(item);
         item.setAttribute("onclick", `flip(${tempCount},'${tempArr[tempCount++]}')`);
         item.setAttribute("style", `background:rgb(${randomColor()},${randomColor()},${randomColor()})`);
     });
@@ -190,20 +190,23 @@ var prev = {
         val: "",
         index: ""
     },
-    count = 0,
+    count = 0,reflip=true,
     a, b;
 
 function flip(index, val) {
+    if(!reflip)
+    return;
     document.querySelectorAll(".front")[index].classList.add("flipfront");
     document.querySelectorAll(".back")[index].classList.add("flipback");
     if (prev.val == "") {
         prev.val = val;
         prev.index = index;
-        console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
+       // console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
     } else {
+        reflip=false;
         curr.val = val;
         curr.index = index;
-        console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
+        //console.log("prev : ", prev.val, "curr : ", curr.val, "original : ", val);
         if (prev.val == curr.val) {
             console.log("correct");
             count++;
@@ -215,6 +218,7 @@ function flip(index, val) {
                 val: "",
                 index: ""
             };
+            reflip=true;
             if (count == 10) {
                 document.getElementById("pop-up").classList.add("animate");
                 document.getElementById("vic").classList.add("animateAvatar");
@@ -231,11 +235,14 @@ function flip(index, val) {
                 val: "",
                 index: ""
             };
+            console.log("first");
             setTimeout(function () {
                 document.querySelectorAll(".front")[a].classList.remove("flipfront");
                 document.querySelectorAll(".front")[b].classList.remove("flipfront");
                 document.querySelectorAll(".back")[a].classList.remove("flipback");
                 document.querySelectorAll(".back")[b].classList.remove("flipback");
+                reflip=true;
+                console.log("last");
             }, 1000);
         }
     }
