@@ -221,6 +221,7 @@ function flip(index, val) {
             reflip=true;
             if (count == 10) {
                 document.getElementById("pop-up").classList.add("animate");
+                document.getElementById("glow").classList.add("glow-green");
                 document.getElementById("vic").classList.add("animateAvatar");
             }
         } else {
