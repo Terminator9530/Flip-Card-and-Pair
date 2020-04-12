@@ -135,7 +135,7 @@ h1 {
 }
 
 .glow-green{
-  animation : glow-green 2s 0.5s ease-in forwards infinite;
+  animation : glow-green 1s 0.5s ease-in forwards infinite alternate;
 }
 
 .animateAvatar {
