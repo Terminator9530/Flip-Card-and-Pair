@@ -1,3 +1,8 @@
+
+ $(function() {
+    $( "#glow" ).draggable();
+});
+
 function randomColor() {
     return Math.random() * (255 - 0) + 0;
 }
